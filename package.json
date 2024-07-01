@@ -1,0 +1,15 @@
+{
+  "name": "csharp-parser",
+  "version": "1.0.0",
+  "description": "creating a small project to parse my application's text into proper html tags",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "electron": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^31.0.2"
+  }
+}

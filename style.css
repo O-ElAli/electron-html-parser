@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    width: 100%;
+    height: 100px;
+    background-color: antiquewhite;
+    margin-bottom: 10px;
+}
+
+
+
+.greeting{
+    font-size: 50px;
+    color: black;
+    text-align: center;
+}
+
+.main-program{
+    margin-left: 20px;
+    display: flex;
+    max-height: 100px;
+}
+
+#user-input{
+    height: 100px;
+    width: 300px;
+    padding: 3%;
+    border-radius: 25px;
+}
+
+#output{
+    height: 100px;
+    width: 300px;
+    padding: 3%;
+    border-radius: 25px;
+}
