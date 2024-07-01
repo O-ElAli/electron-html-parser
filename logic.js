@@ -2,14 +2,12 @@
 
 
 function syntaxChange(){
-    const input = document.getElementById("user-input").innerHTML;
+    const input = document.getElementById("user-input").value;
     const output = document.getElementById("output");
 
-    let newHtml;
+    let newHtml = "";
 
     let open = false;
-
-    console.log(input[5]);
 
     for(let i = 0; i<input.length;i++){
 
