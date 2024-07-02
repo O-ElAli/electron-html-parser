@@ -18,6 +18,11 @@ nav{
     text-align: center;
 }
 
+.choice{
+    padding: 10px;
+    
+}
+
 .main-program{
     margin-left: 20px;
     display: flex;

@@ -18,6 +18,23 @@
     <div class="main-program">
 
         <div style="width: 50%;">
+
+            <div class="choice">
+                
+                <label for="paragraph">Choose a two character sequence to create paragraphs</label>
+                <input type="text" name="paragraph" placeholder="++/+=.." minlength="2" maxlength="2" id="paragraph"> <br>
+
+                <label for="bold">Choose a two character sequence to bold the text</label>
+                <input type="text" name="bold" placeholder="++/==.." minlength="2" maxlength="2" id="bold"> <br>
+
+                <label for="italic">Choose a two character sequence to italic the text</label>
+                <input type="text" name="italic" placeholder="++/==.." minlength="2" maxlength="2" id="italic"> <br>
+
+                <input type="button" value="submit" onclick="parsing()">
+                
+            </div>
+
+
             <textarea name="before" id="user-input">Type whatever your heart desires in this area</textarea>
             <br>
             <input type="button" id="accept" onclick="syntaxChange()" value="Magic">
