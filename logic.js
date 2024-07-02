@@ -18,8 +18,9 @@ function parsing(){
 
 
 function syntaxChange(){
-    const input = document.getElementById("user-input").value;
-    const output = document.getElementById("output");
+    let input = ""
+    input = document.getElementById("user-input").value;
+    let output = document.getElementById("output");
 
     let newHtml = "";
 
@@ -28,18 +29,17 @@ function syntaxChange(){
     let openI = false;
     let openS = false;
 
+    console.log(input[3].substring())
+
     for(let i = 0; i<input.length;i++){
 
-        if(input[i] == paragraph[0] && input[i+1] == paragraph[1]){
-
+        if(input[i].substring(i,i+paragraph.length)==paragraph){
             if(!openP){
-                //if open is false, open a p tag, change the value to true and increment to skip the second "+"
                 newHtml+="<p>";
                 openP = true;
                 i++;
             }
             else{
-                //if open is true, close a p tag, change the value to false and increment to skip the second "+"
                 newHtml+="</p>";
                 openP = false;
                 i++
