@@ -3,18 +3,19 @@
 var paragraph = "";
 var bold = "";
 var italic = "";
+var span = "";
+var color = "";
 
 function parsing(){
 
     paragraph = document.getElementById("paragraph").value;
     bold = document.getElementById("bold").value;
     italic = document.getElementById("italic").value;
-
-    console.log(paragraph)
-
+    span = document.getElementById("span").value;
+    
+    color = document.getElementById("color").value;
 }
 
-console.log(paragraph)
 
 function syntaxChange(){
     const input = document.getElementById("user-input").value;
@@ -25,6 +26,7 @@ function syntaxChange(){
     let openP = false;
     let openB = false;
     let openI = false;
+    let openS = false;
 
     for(let i = 0; i<input.length;i++){
 
@@ -70,6 +72,21 @@ function syntaxChange(){
                 //if open is true, close a p tag, change the value to false and increment to skip the second "*"
                 newHtml+="</i>";
                 openI = false;
+                i++
+            }
+        }
+
+        else if(input[i] == span[0] && input[i+1] == span[1]){
+            if(!openS){
+                //if open is false, open a p tag, change the value to true and increment to skip the second "*"
+                newHtml+="<span style=\"color:"+color+"\">";
+                openS = true;
+                i++;
+            }
+            else{
+                //if open is true, close a p tag, change the value to false and increment to skip the second "*"
+                newHtml+="</span>";
+                openS = false;
                 i++
             }
         }
