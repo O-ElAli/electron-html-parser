@@ -18,6 +18,7 @@ function parsing(){
 
 var input = "";
 var output="";
+
 function syntaxChange(){
     
     input = document.getElementById("user-input").value;
@@ -29,8 +30,6 @@ function syntaxChange(){
     let openB = false;
     let openI = false;
     let openS = false;
-
-    console.log(input[3].substring())
 
     for(let i = 0; i<input.length;i++){
         
@@ -99,13 +98,37 @@ function syntaxChange(){
 
     output.innerHTML = newHtml
 
-    const button = document.getElementById("html");
-    button.setAttribute("type","button")
+    const button = document.createElement("input");
+    button.setAttribute("type","button");
+    button.setAttribute("value","Download html file");
+    button.setAttribute("onclick","outputFile()");
+
+    document.getElementById("output").appendChild(document.createElement("p"));
+    document.getElementById("output").appendChild(button);
 
 }
 
-function outputFile(){
+function outputFile() {
+    const outputDiv = document.getElementById("output");
+    const button = outputDiv.querySelector('input[type="button"]');
 
+    // Temporarily remove the button
+    outputDiv.removeChild(button);
+
+    // Get the content without the button
+    const content = outputDiv.innerHTML;
+    const blob = new Blob([content], { type: 'text/html' });
+    const link = document.createElement('a');
+
+    link.href = URL.createObjectURL(blob);
+    link.download = 'test.html';
+    link.click();
+
+    // Reattach the button
+    outputDiv.appendChild(button);
+
+    // Clean up the URL object
+    URL.revokeObjectURL(link.href);
 }
 
 
