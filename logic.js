@@ -16,11 +16,12 @@ function parsing(){
     color = document.getElementById("color").value;
 }
 
-
+var input = "";
+var output="";
 function syntaxChange(){
-    let input = ""
+    
     input = document.getElementById("user-input").value;
-    let output = document.getElementById("output");
+    output = document.getElementById("output");
 
     let newHtml = "";
 
@@ -33,61 +34,61 @@ function syntaxChange(){
 
     for(let i = 0; i<input.length;i++){
 
-        if(input[i].substring(i,i+paragraph.length)==paragraph){
+        if(input.substring(i,i+paragraph.length)==paragraph){
             if(!openP){
                 newHtml+="<p>";
                 openP = true;
-                i++;
+                i+=paragraph.length-1;
             }
             else{
                 newHtml+="</p>";
                 openP = false;
-                i++
+                i+=paragraph.length-1;
             }
         }
 
-        else if(input[i] == bold[0] && input[i+1] == bold[1]){
+        else if(input.substring(i,i+bold.length)==bold){
             if(!openB){
                 //if open is false, open a p tag, change the value to true and increment to skip the second "*"
                 newHtml+="<strong>";
                 openB = true;
-                i++;
+                i+=bold.length-1;
             }
             else{
                 //if open is true, close a p tag, change the value to false and increment to skip the second "*"
                 newHtml+="</strong>";
                 openB = false;
-                i++
+                i+=bold.length-1;
             }
         }
 
-        else if(input[i] == italic[0] && input[i+1] == italic[1]){
+        else if(input.substring(i,i+italic.length)==italic){
             if(!openI){
                 //if open is false, open a p tag, change the value to true and increment to skip the second "*"
                 newHtml+="<i>";
                 openI = true;
-                i++;
+                i+=italic.length-1;
             }
             else{
                 //if open is true, close a p tag, change the value to false and increment to skip the second "*"
                 newHtml+="</i>";
                 openI = false;
-                i++
+                i+=italic.length-1;
             }
         }
 
-        else if(input[i] == span[0] && input[i+1] == span[1]){
+        else if(input.substring(i,i+span.length)==span){
             if(!openS){
                 //if open is false, open a p tag, change the value to true and increment to skip the second "*"
                 newHtml+="<span style=\"color:"+color+"\">";
                 openS = true;
-                i++;
+                i+=span.length-1;
             }
             else{
                 //if open is true, close a p tag, change the value to false and increment to skip the second "*"
                 newHtml+="</span>";
                 openS = false;
-                i++
+                i+=span.length-1;
             }
         }
 
@@ -100,3 +101,7 @@ function syntaxChange(){
 
 
 }
+
+//test text
+
+/*this is gonna be annoying++first paragraph about ***bold characters!!***++second paragraph about++///*-italic words woohoo!///*-++now to the final test++.+changing colours!!.+ ++*/
