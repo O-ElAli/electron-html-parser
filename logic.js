@@ -33,7 +33,7 @@ function syntaxChange(){
     console.log(input[3].substring())
 
     for(let i = 0; i<input.length;i++){
-
+        
         if(input.substring(i,i+paragraph.length)==paragraph){
             if(!openP){
                 newHtml+="<p>";
@@ -99,8 +99,16 @@ function syntaxChange(){
 
     output.innerHTML = newHtml
 
+    const button = document.getElementById("html");
+    button.setAttribute("type","button")
 
 }
+
+function outputFile(){
+
+}
+
+
 
 //test text
 
